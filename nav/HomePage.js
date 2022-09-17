@@ -19,6 +19,7 @@ const HomePage = () => {
           height: 100,
           backgroundColor: "white",
         },
+        headerShown: false,
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
 

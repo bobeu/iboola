@@ -21,9 +21,9 @@ export default function App() {
   if (!loaded) return null;
   return (
     <NavigationContainer>
-      {/* <AppNav /> */}
-      <HomePage />
-      {/* <MyTabs /> */}
+      <AppNav />
+      {/* <HomePage />
+      <MyTabs /> */}
     </NavigationContainer>
   );
 }

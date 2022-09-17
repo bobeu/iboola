@@ -2,6 +2,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -15,62 +16,62 @@ import { FontAwesome } from "@expo/vector-icons";
 const data = [
   {
     id: 0,
-    uri: "https://images.unsplash.com/photo-1607326957431-29d25d2b386f",
+    uri: "https://images.unsplash.com/photo-1644363832001-0876e81f37a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2428&q=80",
     title: "Dahlia",
     location: "Garki, Abuja",
     title: "What is iBOOLA DAO?",
     subtitle: "Understanding how iBOOLA DAO works",
     _created: "5min",
-  }, // https://unsplash.com/photos/Jup6QMQdLnM
+  },
   {
     id: 1,
-    uri: "https://images.unsplash.com/photo-1512238701577-f182d9ef8af7",
+    uri: "https://images.unsplash.com/photo-1644363832001-0876e81f37a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2428&q=80",
     title: "Sunflower",
     location: "Wuse, Abuja",
     title: "Why join a community",
     subtitle: "Importance of iBOOLA community and DAO",
     _created: "5min",
-  }, // https://unsplash.com/photos/oO62CP-g1EA
+  },
   {
     id: 2,
-    uri: "https://images.unsplash.com/photo-1627522460108-215683bdc9f6",
+    uri: "https://images.unsplash.com/photo-1644363832001-0876e81f37a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2428&q=80",
     title: "Zinnia",
     location: "Nyanya, Abuja",
     title: "Frequently asked questions",
     subtitle: "Understanding how iBOOLA DAO works",
     _created: "5min",
-  }, // https://unsplash.com/photos/gKMmJEvcyA8
+  },
   {
     id: 3,
-    uri: "https://images.unsplash.com/photo-1587814213271-7a6625b76c33",
+    uri: "https://images.unsplash.com/photo-1644363832001-0876e81f37a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2428&q=80",
     title: "Tulip",
     location: "ABa, Abuja",
     title: "What is iBOOLA DAO?",
     subtitle: "Understanding how iBOOLA DAO works",
     _created: "5min",
-  }, // https://unsplash.com/photos/N7zBDF1r7PM
+  },
   {
     id: 4,
-    uri: "https://images.unsplash.com/photo-1588628566587-dbd176de94b4",
+    uri: "https://images.unsplash.com/photo-1644363832001-0876e81f37a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2428&q=80",
     title: "Chrysanthemum",
     location: "Kubwa, Abuja",
     title: "What is iBOOLA DAO?",
     subtitle: "Understanding how iBOOLA DAO works",
     _created: "5min",
-  }, // https://unsplash.com/photos/GsGZJMK0bJc
+  },
   {
     id: 5,
-    uri: "https://images.unsplash.com/photo-1501577316686-a5cbf6c1df7e",
+    uri: "https://images.unsplash.com/photo-1644363832001-0876e81f37a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2428&q=80",
     title: "Hydrangea",
     location: "Gwagwalada, Abuja",
     title: "What is iBOOLA DAO?",
     subtitle: "Understanding how iBOOLA DAO works",
     _created: "5min",
-  }, // https://unsplash.com/photos/coIBOiWBPjk
+  },
 ];
 const DAO = () => {
   return (
-    <View>
+    <SafeAreaView>
       <View
         style={{
           flexDirection: "row",
@@ -129,7 +130,7 @@ const DAO = () => {
             <View
               style={{
                 width: 200,
-                height: 200,
+                height: 170,
                 backgroundColor: "white",
                 borderRadius: 15,
               }}
@@ -149,7 +150,7 @@ const DAO = () => {
         <Text style={{ fontFamily: FONTS.bold, fontSize: 18 }}>About DAO</Text>
       </View>
 
-      <View style={{ paddingHorizontal: "5%" }}>
+      <View style={{ paddingHorizontal: "5%", marginBottom: 200 }}>
         <FlatList
           data={data}
           style={{ marginBottom: 100 }}
@@ -182,6 +183,8 @@ const DAO = () => {
                     top: 10,
                     padding: 10,
                     color: "white",
+                    borderTopRightRadius: 15,
+                    borderTopLeftRadius: 15,
                   }}
                 >
                   {item._created}
@@ -231,7 +234,7 @@ const DAO = () => {
           )}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

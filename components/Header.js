@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { COLORS, FONTS } from "../constant";
+import { useNavigation } from "@react-navigation/native";
 const Header = ({ title }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -12,7 +14,13 @@ const Header = ({ title }) => {
         paddingLeft: 20,
       }}
     >
-      <MaterialIcons name="keyboard-arrow-left" size={30} color="black" />
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        <MaterialIcons name="keyboard-arrow-left" size={30} color="black" />
+      </TouchableOpacity>
       <Text
         style={{
           position: "absolute",

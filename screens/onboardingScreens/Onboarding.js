@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 import React from "react";
 import Login from "../Login/Login";
 import Button from "../../components/Button";
@@ -24,55 +24,70 @@ const Onboarding = () => {
 
   const renderItem = ({ item }) => {
     return (
-      <View
-        style={{
-          backgroundColor: item.backgroundColor,
-          alignItems: "center",
-          justifyContent: "space-around",
-          paddingBottom: hp("10%"),
-          flex: 1,
-        }}
-      >
-        <Image
-          source={item.heading}
+      <SafeAreaView style={{ flex: 1 }}>
+        <View
           style={{
-            height: hp("10%"),
-            width: wp("20%"),
-            resizeMode: "contain",
-          }}
-        />
-        <Image
-          source={item.image}
-          style={{ height: hp("50%"), width: wp("50%"), resizeMode: "contain" }}
-        />
-        <Text
-          style={{
-            height: hp("10%"),
-            fontWeight: "700",
-            fontFamily: FONTS.bold,
-            fontSize: 28,
-            lineHeight: 32,
+            backgroundColor: item.backgroundColor,
+            alignItems: "center",
+            justifyContent: "space-around",
+            paddingBottom: hp("5%"),
+            flex: 1,
           }}
         >
-          {item.title}
-        </Text>
-        <Text
-          style={{
-            height: hp("5%"),
-            textAlign: "center",
-            fontWeight: "400",
-            fontFamily: FONTS.regular,
-            fontSize: 16,
-            lineHeight: 24,
-          }}
-        >
-          {item.text}
-        </Text>
-        <Button
-          action="GET STARTED"
-          onPress={() => navigation.navigate("Login")}
-        />
-      </View>
+          <Image
+            source={item.heading}
+            style={{
+              height: hp("10%"),
+              width: wp("20%"),
+              resizeMode: "contain",
+            }}
+          />
+          <Image
+            source={item.image}
+            style={{
+              height: hp("50%"),
+              width: wp("50%"),
+              resizeMode: "contain",
+            }}
+          />
+          <Text
+            style={{
+              height: hp("10%"),
+              fontWeight: "700",
+              fontFamily: FONTS.bold,
+              fontSize: 28,
+              lineHeight: 32,
+            }}
+          >
+            {item.title}
+          </Text>
+          <View
+            style={{
+              flexShrink: 1,
+              paddingHorizontal: 10,
+              height: 120,
+              width: "100%",
+            }}
+          >
+            <Text
+              style={{
+                // height: hp("5%"),
+                textAlign: "center",
+                fontWeight: "400",
+                fontFamily: FONTS.regular,
+                fontSize: 16,
+                lineHeight: 24,
+              }}
+            >
+              {item.text}
+            </Text>
+          </View>
+          <Button
+            action="GET STARTED"
+            onPress={() => navigation.navigate("Login")}
+          />
+        </View>
+      </SafeAreaView>
     );
   };
   const slides = [

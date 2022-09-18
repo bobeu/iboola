@@ -14,25 +14,26 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  await deploy("Greeter", {
+  const token = await deploy("IBoolaTokenV", {
     from: deployer,
-    args: ["hello world"],
+    args: [],
     log: true,
   });
 
-  await deploy("Storage", {
+  await deploy("IBoolaContractV", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
-    //args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    args: [ token.address],
     log: true,
   });
 
-  await deploy("SupportToken", {
-    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
-    from: deployer,
-    //args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    log: true,
-  });
+  // await deploy("SupportToken", {
+  //   // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+  //   from: deployer,
+  //   //args: [ "Hello", ethers.utils.parseEther("1.5") ],
+  //   log: true,
+  // });
 
   // Getting a previously deployed contract
   // const Greeter = new ethers.Contract("Greeter", deployer);

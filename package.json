@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Waste recycling",
   "private": true,
+  "allowjs": true,
   "scripts": {
     "react-app:dev": "yarn workspace @iboola/react-app dev",
     "react-app:build": "yarn workspace @iboola/react-app build",

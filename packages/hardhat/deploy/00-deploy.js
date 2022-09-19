@@ -24,7 +24,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    args: [ token.address],
+    args: [ token.address ],
     log: true,
   });
 
@@ -64,6 +64,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     LibraryName: **LibraryAddress**
   });
   */
+
+//   Generating typings for: 0 artifacts in dir: types for target: web3-v1
+// Successfully generated 42 typings!
+// deploying "IBoolaTokenV" (tx: 0x3560170f91544678deb72f7fdb485f681a6584901ed57c2cf8aa239c42bef824)...: deployed at 0x6984495194dad4C9d8e6f99EAd5Bd3b1783aF024 with 1702714 gas
+// deploying "IBoolaContractV" (tx: 0x0a0e8349e42a75f77aec755a89a75ae94a9764e0c67839127e79f6e7a458f994)...: deployed at 0xd6a981aAC71aC3A4825B5851EaE08b6F842C53c9 with 5135526 gas
+// Done in 22.22s.
 };
 
-module.exports.tags = ["Greeter", "Storage", "SupportToken"];
+module.exports.tags = ["IBoolaTokenV", "IBoolaContractV"];

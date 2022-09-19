@@ -8,7 +8,7 @@ import "./deps/Ownable.sol";
 import "./deps/IERC20.sol";
 
 /**
- * @title Main
+ * @title IBoolaContract
  * @author Bobeu: https://github.com/bobeu
  * A smart contract that will tokenize the disposal and collection of waste. 
     Users get a token when they dispose of their waste in a waste bin, collectors 

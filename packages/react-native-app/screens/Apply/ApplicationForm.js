@@ -17,7 +17,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 
 import { useWalletConnect } from "@walletconnect/react-native-dapp";
-import { contractsInfo } from "../../navigation"; // <====
+import { contractsInfo } from "../../apis/contractApis";// <====
 /**
  * 
  * @dev Since user will apply for smart bin, the api to call is self-descriptive

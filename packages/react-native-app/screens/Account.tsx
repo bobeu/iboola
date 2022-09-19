@@ -9,10 +9,16 @@ import { ThemeContext } from "../context/ThemeProvider";
 
 const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
 
+/**
+ * 
+ * @dev This component returns the address of the current user 
+ * that is interacting with this app. Also, calling connector.killSession
+ * simply logs out the user.
+ */
 export default function Account() {
 	const connector = useWalletConnect();
 	const { styles } = useContext(ThemeContext);
-	const [accountLink, setAccountLink] = useState();
+	const [accountLink, setAccountLink] = useState("");
 	useEffect(() => {
 		setAccountLink(
 			`https://alfajores-blockscout.celo-testnet.org/address/${connector.accounts[0]}`

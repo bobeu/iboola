@@ -4,6 +4,12 @@ import { RootStackScreenProps } from "../types";
 import { Text, View, TouchableOpacity } from "../components/Themed";
 import Colors from "../constants/Colors";
 
+/**
+ * 
+ * @dev Instead of the traditional login pattern, create the login ui here
+ * Calling the connector.connect will sign or log in user.
+ * @returns 
+ */
 export default function LoginScreen({
 	navigation,
 }: RootStackScreenProps<"Root">) {

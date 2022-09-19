@@ -3,7 +3,14 @@ import { Platform, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { contractsInfo } from '../navigation';
 
+
+/**
+ * 
+ * @dev This component is simply to show how you can call and use each api
+ * on the frontend.   
+ */
 export default function ModalScreen() {
   return (
     <View style={styles.container}>

@@ -9,8 +9,10 @@ import {
 import React from "react";
 import { COLORS, FONTS, assets } from "../../constant";
 import Button from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 const ApplyForSmartBinScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
       <View style={{ paddingTop: "30%", paddingBottom: "10%" }}>
@@ -43,22 +45,37 @@ const ApplyForSmartBinScreen = () => {
           et magnis dis
         </Text>
       </View>
-      <Button action="Apply Here" />
+      <Button
+        action="Apply Here"
+        onPress={() => {
+          navigation.navigate("ApplyForDAO");
+        }}
+      />
       <View style={{ paddingVertical: "5%" }}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            return;
+          }}
+        >
           <Text style={{ color: COLORS.textColor }}>Not Now</Text>
         </TouchableOpacity>
       </View>
       <View style={{ position: "absolute", bottom: "10%" }}>
-        <Text
-          style={{
-            color: COLORS.btnColor,
-            fontSize: 18,
-            fontFamily: FONTS.light,
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Login");
           }}
         >
-          I already Own a iBOOLA Smart Waste Bin
-        </Text>
+          <Text
+            style={{
+              color: COLORS.btnColor,
+              fontSize: 18,
+              fontFamily: FONTS.light,
+            }}
+          >
+            I already Own a iBOOLA Smart Waste Bin
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

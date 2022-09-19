@@ -7,8 +7,10 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const CongratulationsScreen = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={{ position: "relative" }}>
@@ -29,6 +31,9 @@ const CongratulationsScreen = () => {
           bottom: "5%",
           left: "5%",
           borderRadius: 15,
+        }}
+        onPress={() => {
+          navigation.navigate("HomePage");
         }}
       >
         <Text>Next</Text>

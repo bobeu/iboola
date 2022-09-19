@@ -14,6 +14,9 @@ import { COLORS, FONTS, assets } from "../../constant";
 import Button from "../../components/Button";
 import Modal from "react-native-modal";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+// import { contractsInfo } from "../../apis/contractApis";
+// import { useWalletConnect } from "@walletconnect/react-native-dapp";
 
 const ModalPoup = ({ visible, children }) => {
   const [showModal, setShowModal] = React.useState(visible);
@@ -56,6 +59,7 @@ const ModalPoup = ({ visible, children }) => {
 
 const ApplicationForm = () => {
   const [visible, setVisible] = React.useState(false);
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
       <ModalPoup visible={visible}>
@@ -109,7 +113,12 @@ const ApplicationForm = () => {
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
         </Text>
-        <Button action="OK" />
+        <Button
+          action="OK"
+          onPress={() => {
+            navigation.navigate("Congrats");
+          }}
+        />
       </ModalPoup>
       <View style={{ width: "100%" }}>
         <Header title="Application" />
@@ -132,7 +141,7 @@ const ApplicationForm = () => {
           textAlign: "justify",
         }}
       >
-        <Text tyle={{ fontSize: 12, fontFamily: FONTS.regular }}>
+        <Text style={{ fontSize: 12, fontFamily: FONTS.regular }}>
           Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
           vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
           vitae, eleifend ac, enim.
@@ -198,7 +207,13 @@ const ApplicationForm = () => {
           />
         </View>
       </View>
-      <Button action="OK" onPress={() => setVisible(true)} />
+      <Button
+        action="OK"
+        onPress={async () => {
+          // await contractsInfo.registerBin();
+          setVisible(true);
+        }}
+      />
     </SafeAreaView>
   );
 };

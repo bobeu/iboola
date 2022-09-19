@@ -121,7 +121,12 @@ const SignUpScreen = () => {
         </View>
       </View>
 
-      <Button action="OK" />
+      <Button
+        action="OK"
+        onPress={() => {
+          navigation.navigate("ApplyForSmartWasteBin");
+        }}
+      />
     </SafeAreaView>
   );
 };

@@ -24,15 +24,13 @@ const HomePage = () => {
           let iconName;
 
           if (route.name === "Explore") {
-            iconName = focused
-              ? "clipboard-search"
-              : "clipboard-search-outline";
+            iconName = focused ? "clipboard-check" : "clipboard-check-outline";
           } else if (route.name === "Wallet") {
             iconName = focused ? "wallet" : "wallet-outline";
           } else if (route.name === "Stalking") {
             iconName = focused ? "view-grid" : "view-grid-outline";
           } else if (route.name === "DAO") {
-            iconName = focused ? "dots-hexagon" : "dots-hexagon";
+            iconName = focused ? "currency-btc" : "currency-btc";
           }
           return (
             <MaterialCommunityIcons name={iconName} size={30} color="green" />

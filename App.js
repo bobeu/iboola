@@ -9,6 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import AppNav from "./nav/AppNav";
 import HomePage from "./nav/HomePage";
 import MyTabs from "./nav/TopTabNav";
+import ApplicationForm from "./screens/Apply/ApplicationForm";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -24,6 +25,7 @@ export default function App() {
       <AppNav />
       {/* <HomePage />
       <MyTabs /> */}
+      {/* <ApplicationForm /> */}
     </NavigationContainer>
   );
 }

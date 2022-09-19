@@ -30,7 +30,7 @@ const Onboarding = () => {
             backgroundColor: item.backgroundColor,
             alignItems: "center",
             justifyContent: "space-around",
-            paddingBottom: hp("5%"),
+            paddingBottom: hp("15%"),
             flex: 1,
           }}
         >

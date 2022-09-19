@@ -15,6 +15,7 @@ import { TabView, SceneMap } from "react-native-tab-view";
 import { COLORS, FONTS } from "../../constant";
 import BodyTab from "../../components/BodyTab";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Explore = () => {
   const [activeTab, setActiveTab] = React.useState(false);
@@ -23,6 +24,7 @@ const Explore = () => {
   const switchTab = () => {
     setActiveTab(!activeTab);
   };
+  const navigation = useNavigation();
   return (
     <ScrollView contentContainerStyle={{ backgroundColor: "#EFFFEB", flex: 1 }}>
       <SafeAreaView
@@ -38,7 +40,13 @@ const Explore = () => {
             width: "100%",
           }}
         >
-          <Octicons name="chevron-left" size={24} color="black" />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <Octicons name="chevron-left" size={24} color="black" />
+          </TouchableOpacity>
           <Text>Token Details</Text>
           <MaterialCommunityIcons
             name="microsoft-xbox-controller-menu"
@@ -144,14 +152,14 @@ const Explore = () => {
         >
           <View style={{ paddingVertical: "3%" }}>
             <TouchableOpacity>
-              <Text style={{ color: FONTS.light, fontSize: 16 }}>
+              <Text style={{ fontFamily: FONTS.light, fontSize: 16 }}>
                 Transaction History
               </Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity>
-              <Text style={{ color: FONTS.light, fontSize: 16 }}>
+              <Text style={{ fontFamily: FONTS.light, fontSize: 16 }}>
                 Performance
               </Text>
             </TouchableOpacity>

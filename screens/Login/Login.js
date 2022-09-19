@@ -21,9 +21,13 @@ import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
   const navigation = useNavigation();
+  const [uniqueId, setUniqueId] = React.useState("");
+  const [password, setPassword] = React.useState("");
   return (
     <>
-      <SafeAreaView style={{ paddingHorizontal: 20, alignItems: "center" }}>
+      <SafeAreaView
+        style={{ paddingHorizontal: 20, alignItems: "center", paddingTop: 50 }}
+      >
         <View style={{ width: "100%" }}>
           <Header title="Sign In" />
         </View>
@@ -122,13 +126,19 @@ const Login = () => {
                 fontSize: 12,
                 fontFamily: FONTS.regular,
               }}
+              j
             >
               Forget Password?
             </Text>
           </TouchableOpacity>
         </View>
 
-        <Button action="SIGN IN" />
+        <Button
+          action="SIGN IN"
+          onPress={() => {
+            navigation.navigate("HomePage");
+          }}
+        />
 
         <View
           style={{

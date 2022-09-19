@@ -23,6 +23,13 @@ const AppNav = () => {
       <Stack.Screen name="Signup" component={SignUpScreen} />
       <Stack.Screen name="ResetPassword" component={ResetPassword} />
       <Stack.Screen name="IncorrectPhrase" component={IncorrectPhrase} />
+      <Stack.Screen name="HomePage" component={HomePage} />
+      <Stack.Screen name="ApplyForDAO" component={ApplicationForm} />
+      <Stack.Screen
+        name="ApplyForSmartWasteBin"
+        component={ApplyForSmartBinScreen}
+      />
+      <Stack.Screen name="Congrats" component={CongratulationsScreen} />
     </Stack.Navigator>
     // <ApplyForSmartBinScreen />
     // <ApplicationForm />

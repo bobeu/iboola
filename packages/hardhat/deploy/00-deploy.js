@@ -75,6 +75,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 // Successfully generated 19 typings!
 // deploying "IBoolaTokenV" (tx: 0xe79c98215118a16b1d5ae652799c29e875ae208e49037cdcd864203e9d8358d7)...: deployed at 0x5FbDB2315678afecb367f032d93F642f64180aa3 with 894734 gas
 // deploying "IBoolaContractV" (tx: 0xd39b1a804b1cf86b856ae3e1c2d002020679b5b7a3dc92eca73b5bedba4982ce)...: deployed at 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 with 2774142 gas
+
+// Successfully generated 19 typings!
+// deploying "IBoolaTokenV" (tx: 0x84e39de416dd94cd46ed5196d8768b3d5bd8126be6b563e4427ad42020cada5a)...: deployed at 0xb1E11FEBc6670c3476eab3D36541D7d0DE144416 with 888234 gas        
+// deploying "IBoolaContractV" (tx: 0x3eef0dc016d9991e6cb8e387684f0d1a2409109150d4eaa81d41436c820bdf5b)...: deployed at 0x5787A4BBAea58db3152fEA60662e69ad7b167Ba5 with 2765042 gas    
+// Done in 23.81s.
+
 };
 
 module.exports.tags = ["IBoolaTokenV", "IBoolaContractV"];

@@ -14,13 +14,41 @@ import { COLORS, FONTS, assets } from "../../constant";
 import Button from "../../components/Button";
 import Modal from "react-native-modal";
 import { AntDesign } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-// import { contractsInfo } from "../../apis/contractApis";
-// import { useWalletConnect } from "@walletconnect/react-native-dapp";
+
+import { useWalletConnect } from "@walletconnect/react-native-dapp";
+import { contractsInfo } from "../../apis/contractApis"; // <====
+/**
+ *
+ * @dev Since user will apply for smart bin, the api to call is self-descriptive
+ *      just make the user call
+ *                              `await contractsInfo.registerBin()`
+ *
+ *                      @Note All functions in the apis are asynchronous.
+ *                            So, be sure to use `await` keyword inside an
+ *                            async function.
+ *  @param {_callback, connector}
+ *      o _callback - Function to call before the api runs. i.e
+ *                    whileapiRunning(). This function will be called before the api runs
+ *                                       with 'true' value. After the api success, it is called again with
+ *                                       `false` value.
+ *      o connector  - This is an object, being a return value from calling "useWalletConnect()" hook
+ *                      and should be called inside the body of a component.
+ *                      See how it is used on line 50.
+ *
+ *      o It accepts parameters.
+ *      o Be sure to check which of them accepts parameters.
+ *      o Create form to accept value from user. Then supply the parameter to the
+ *          function.
+ *
+ *     Example: await contractsInfo.registerBin(_callback, connector);
+ *
+ *
+ */
 
 const ModalPoup = ({ visible, children }) => {
   const [showModal, setShowModal] = React.useState(visible);
   const scaleValue = React.useRef(new Animated.Value(0)).current;
+
   React.useEffect(() => {
     toggleModal();
   }, [visible]);
@@ -59,7 +87,9 @@ const ModalPoup = ({ visible, children }) => {
 
 const ApplicationForm = () => {
   const [visible, setVisible] = React.useState(false);
-  const navigation = useNavigation();
+  const [location, setLocation] = React.useState("");
+  const [address, setAddress] = React.useState("");
+  const connector = useWalletConnect();
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
       <ModalPoup visible={visible}>
@@ -113,12 +143,7 @@ const ApplicationForm = () => {
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
         </Text>
-        <Button
-          action="OK"
-          onPress={() => {
-            navigation.navigate("Congrats");
-          }}
-        />
+        <Button action="OK" />
       </ModalPoup>
       <View style={{ width: "100%" }}>
         <Header title="Application" />
@@ -141,7 +166,7 @@ const ApplicationForm = () => {
           textAlign: "justify",
         }}
       >
-        <Text style={{ fontSize: 12, fontFamily: FONTS.regular }}>
+        <Text tyle={{ fontSize: 12, fontFamily: FONTS.regular }}>
           Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
           vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
           vitae, eleifend ac, enim.
@@ -174,6 +199,8 @@ const ApplicationForm = () => {
               borderColor: COLORS.gray,
               flex: 1,
             }}
+            value={location}
+            onChangeText={(text) => setLocation(text)}
           />
         </View>
       </View>
@@ -204,13 +231,19 @@ const ApplicationForm = () => {
               borderColor: COLORS.gray,
               flex: 1,
             }}
+            value={address}
+            onChangeText={(text) => setAddress(text)}
           />
         </View>
       </View>
       <Button
         action="OK"
         onPress={async () => {
-          // await contractsInfo.registerBin();
+          await contractsInfo.signUpAsWasteCollector(
+            location,
+            address,
+            connector.connect
+          );
           setVisible(true);
         }}
       />

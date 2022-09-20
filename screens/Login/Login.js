@@ -18,11 +18,11 @@ import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { useWalletConnect } from "@walletconnect/react-native-dapp";
 
 const Login = () => {
   const navigation = useNavigation();
-  const [uniqueId, setUniqueId] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const connector = useWalletConnect();
   return (
     <>
       <SafeAreaView
@@ -134,9 +134,11 @@ const Login = () => {
         </View>
 
         <Button
-          action="SIGN IN"
-          onPress={() => {
-            navigation.navigate("HomePage");
+          action="CONNECT WITH WALLET"
+          onPress={async () => {
+            await connector.connect.then((res) => {
+              res && navigation.navigate("HomePage");
+            });
           }}
         />
 
